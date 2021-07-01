@@ -22,9 +22,9 @@ h = 150 # height of diffraction pattern output image
 single_slit = np.array([I_s(x) for x in xs])
 double_slit = np.array([I_d(x) for x in xs])
 
-s_pattern = np.concatenate(h*(np.expand_dims(np.array([I_s(x) for x in xs]), 0), ), axis=0)
+s_pattern = np.concatenate(h*(np.expand_dims(np.array([I_s(angle) for angle in angles]), 0), ), axis=0)
 print(np.shape(s_pattern))
-d_pattern = np.concatenate(h*(np.expand_dims(np.array([I_d(x) for x in xs]), 0), ), axis=0)
+d_pattern = np.concatenate(h*(np.expand_dims(np.array([I_d(angle) for angle in angles]), 0), ), axis=0)
 
 axs[0].plot(xs, single_slit, color = 'red', label = f'Intensity')
 axs[0].plot(xs, double_slit, color = 'blue', label = f'Intensity')
